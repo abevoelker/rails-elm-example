@@ -17,6 +17,14 @@ var config = {
     'application': './webpack/application.js'
   },
 
+  module: {
+    loaders: [{
+      test: /\.elm$/,
+      exclude: [/elm-stuff/, /node_modules/],
+      loader: 'elm-hot!elm-webpack?verbose=true&warn=true'
+    }]
+  },
+
   output: {
     // Build assets directly in to public/webpack/, let webpack know
     // that all webpacked assets start with webpack/
